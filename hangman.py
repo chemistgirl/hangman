@@ -1,5 +1,6 @@
 import random
 import string
+import os
 
 def ask_name():
     name = input("what is your name? ")
@@ -7,8 +8,9 @@ def ask_name():
     return name
 
 def randomword():
+    word_path = os.path.dirname(os.path.realpath(__file__)) + os.path.sep + "words.txt"
     try:
-        word_file = open("words.txt","r")
+        word_file = open(word_path,"r")
         word_list = word_file.readlines()
         word_file.close()
     except FileNotFoundError:
